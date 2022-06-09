@@ -10,6 +10,9 @@ public class HelloController {
 
     @RequestMapping("/")
     public String welcome(){
+        /**
+         *  alim12345, emet54321, semet1234, memet4321
+         */
         return "Accueil";
     }
 

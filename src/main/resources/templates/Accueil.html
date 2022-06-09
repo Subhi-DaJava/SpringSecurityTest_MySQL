@@ -19,7 +19,7 @@
 <div sec:authorize="hasRole('manager')">Hello manager !</div>
 <div sec:authorize="hasRole('employee')">Hello employee !</div>
 <button sec:authorize="hasAuthority('admin')">Admin Button</button>
-<button sec:authorize="hasAnyAuthority('user', 'admin')"
+<button sec:authorize="hasAnyAuthority('user', 'admin','employee')"
         onclick="location.href='/logout';" >Left Button</button>
 </body>
 </html>
