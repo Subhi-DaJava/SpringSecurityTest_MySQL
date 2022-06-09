@@ -13,4 +13,15 @@ public class HelloController {
     public String welcome(){
         return "Welcome ! Spring Security";
     }
+
+    @RequestMapping("/loginPage")
+    public String loginPage(){
+        return "loginPage";
+    }
+
+    @RequestMapping("/fail")
+    @ResponseBody
+    public String fail(){
+        return "Bad Credential";
+    }
 }
