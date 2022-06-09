@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+  <meta charset="UTF-8">
+  <title>Welcome page</title>
+</head>
+<body style="padding: 20px">
+<h1>Welcome page</h1>
+<ul>
+  <li>User Name: <span  sec:authentication="name"></span></li>
+  <li>User Name（principal.username）: <span sec:authentication="principal.username"></span></li>
+  <li>Auth（credentials): <span sec:authentication="credentials"></span></li>
+  <li>Authorities: <span sec:authentication="authorities"></span></li>
+  <li>Details.remoteAddress: <span sec:authentication="details.remoteAddress"></span></li>
+  <li>Session Id（details.sessionId）: <span sec:authentication="details.sessionId"></span></li>
+</ul>
+<div sec:authorize="hasRole('manager')">Hello manager !</div>
+<div sec:authorize="hasRole('employee')">Hello employee !</div>
+<button sec:authorize="hasAuthority('admin')">Admin Button</button>
+<button sec:authorize="hasAnyAuthority('user', 'admin')"
+        onclick="location.href='/logout';" >Left Button</button>
+</body>
+</html>

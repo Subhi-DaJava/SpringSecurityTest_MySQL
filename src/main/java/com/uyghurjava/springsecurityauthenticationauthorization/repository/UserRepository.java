@@ -11,20 +11,29 @@ public class UserRepository {
     //UserA, UserB
     public Map<String, Map<String,String>> users;
     {
-        // UserA, 1234
+        // admin, 1234
         Map<String, String> infoUserA = new LinkedHashMap<>();
         infoUserA.put("password", "$2a$10$l63YJdJLkedZc1S4ay/U/OQ/L7IUvjutDF/7cHlkhSeN00K2vvUay");
-        infoUserA.put("authority","admin, normal, ROLE_manager");
+        infoUserA.put("authority","admin,user,ROLE_manager");
 
-        //UserB, 5678
+        // user1, 0000
         Map<String, String> infoUserB = new LinkedHashMap<>();
-        infoUserB.put("password", "$2a$10$J5uOwmVuOwPy0To6gy4QWOUz3pKW5sjjW/MUnetaMGQLXsuZumNwy");
-        infoUserB.put("authority", "normal, ROLE_employee");
+        infoUserB.put("password", "$2a$12$N7/2jkt8HdaGwFNQMEGDIurrsuM5TA48A5gX.KVKG/Ryt7bPR5TX2");
+        infoUserB.put("authority","user,ROLE_employee");
+
+        // user2, 2222, (1111)maintenant changé pour tester Remember-me, remplacé pendant l'exécution, il arrive à reconnecter automatiqument
+        Map<String, String> infoUserC = new LinkedHashMap<>();
+        infoUserC.put("password", "$2a$12$jualOiSA8nlJqRNhFAsBJeN6BJCS0ZZvLY3drhOneEc1ffs9Leniy");
+        infoUserC.put("authority","user,ROLE_employee");
+
+
+
 
         users = new LinkedHashMap<>();
 
-        users.put("UserA", infoUserA);
-        users.put("UserB", infoUserB);
+        users.put("admin", infoUserA);
+        users.put("user1", infoUserB);
+        users.put("user2", infoUserC);
 
         System.out.println(users);
     }

@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloController {
 
     @RequestMapping("/")
-    @ResponseBody
     public String welcome(){
-        return "Welcome ! Spring Security";
+        return "Accueil";
     }
 
     @RequestMapping("/loginPage")
@@ -24,4 +23,31 @@ public class HelloController {
     public String fail(){
         return "Bad Credential";
     }
+
+    @RequestMapping("/adminPage")
+    @ResponseBody
+    public String adminPage(){
+        return "Welcome to admin page !";
+    }
+
+    @RequestMapping("/employeePage")
+    @ResponseBody
+    public String employeePage(){
+        return "Welcome to employee page !";
+    }
+
+    @RequestMapping("/managerPage")
+    @ResponseBody
+    public String managerPage(){
+        return "Welcome to manager page !";
+    }
+
+
+    //Retourner la page SansAutorisation.html quand la permission n'est pas remplie
+    @RequestMapping("/SansAutorisation")
+    public String sansAuth(){
+        return "SansAutorisation";
+    }
+
+
 }

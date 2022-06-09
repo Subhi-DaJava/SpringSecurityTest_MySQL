@@ -21,12 +21,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        //Vérifier, Remember-me, comment garder la session, deuxième essai changer le mot de passe
+        System.out.println("LoadUseByUserName: " + username);
+
         //Vérifier si user existe ou non, stream pour looper
         Optional<Entry<String, Map<String, String>>> userOpt = userRepository.users
                 .entrySet()
                 .stream()
                 .filter(un -> un.getKey().equals(username))
                 .findFirst();
+
         if(!userOpt.isPresent())
             throw new UsernameNotFoundException("Not found this user"+ username);
 
